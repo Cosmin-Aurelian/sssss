@@ -1,0 +1,44 @@
+D:\Seminar_PAW_IE_21_22\Seminar4\Seminar4_1048\Seminar4_1048\bin\Debug\Seminar4_1048.exe.config
+D:\Seminar_PAW_IE_21_22\Seminar4\Seminar4_1048\Seminar4_1048\bin\Debug\Seminar4_1048.exe
+D:\Seminar_PAW_IE_21_22\Seminar4\Seminar4_1048\Seminar4_1048\bin\Debug\Seminar4_1048.pdb
+D:\Seminar_PAW_IE_21_22\Seminar4\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.csproj.AssemblyReference.cache
+D:\Seminar_PAW_IE_21_22\Seminar4\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.Form1.resources
+D:\Seminar_PAW_IE_21_22\Seminar4\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.Properties.Resources.resources
+D:\Seminar_PAW_IE_21_22\Seminar4\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.csproj.GenerateResource.cache
+D:\Seminar_PAW_IE_21_22\Seminar4\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.csproj.CoreCompileInputs.cache
+D:\Seminar_PAW_IE_21_22\Seminar4\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.exe
+D:\Seminar_PAW_IE_21_22\Seminar4\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.pdb
+D:\Seminar_PAW_IE_21_22\Seminar5\Seminar5_1054\Seminar4_1048\Seminar4_1048\bin\Debug\Seminar4_1048.exe.config
+D:\Seminar_PAW_IE_21_22\Seminar5\Seminar5_1054\Seminar4_1048\Seminar4_1048\bin\Debug\Seminar4_1048.exe
+D:\Seminar_PAW_IE_21_22\Seminar5\Seminar5_1054\Seminar4_1048\Seminar4_1048\bin\Debug\Seminar4_1048.pdb
+D:\Seminar_PAW_IE_21_22\Seminar5\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.csproj.AssemblyReference.cache
+D:\Seminar_PAW_IE_21_22\Seminar5\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.Form1.resources
+D:\Seminar_PAW_IE_21_22\Seminar5\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.Properties.Resources.resources
+D:\Seminar_PAW_IE_21_22\Seminar5\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.csproj.GenerateResource.cache
+D:\Seminar_PAW_IE_21_22\Seminar5\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.csproj.CoreCompileInputs.cache
+D:\Seminar_PAW_IE_21_22\Seminar5\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.exe
+D:\Seminar_PAW_IE_21_22\Seminar5\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.pdb
+D:\Seminar_PAW_IE_21_22\Seminar5\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.Form2.resources
+D:\Seminar_PAW_IE_21_22\Seminar6\Seminar6_1055\Seminar5_1054\Seminar4_1048\Seminar4_1048\bin\Debug\Seminar4_1048.exe.config
+D:\Seminar_PAW_IE_21_22\Seminar6\Seminar6_1055\Seminar5_1054\Seminar4_1048\Seminar4_1048\bin\Debug\Seminar4_1048.exe
+D:\Seminar_PAW_IE_21_22\Seminar6\Seminar6_1055\Seminar5_1054\Seminar4_1048\Seminar4_1048\bin\Debug\Seminar4_1048.pdb
+D:\Seminar_PAW_IE_21_22\Seminar6\Seminar6_1055\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.csproj.AssemblyReference.cache
+D:\Seminar_PAW_IE_21_22\Seminar6\Seminar6_1055\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.Form1.resources
+D:\Seminar_PAW_IE_21_22\Seminar6\Seminar6_1055\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.Form2.resources
+D:\Seminar_PAW_IE_21_22\Seminar6\Seminar6_1055\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.Properties.Resources.resources
+D:\Seminar_PAW_IE_21_22\Seminar6\Seminar6_1055\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.csproj.GenerateResource.cache
+D:\Seminar_PAW_IE_21_22\Seminar6\Seminar6_1055\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.csproj.CoreCompileInputs.cache
+D:\Seminar_PAW_IE_21_22\Seminar6\Seminar6_1055\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.exe
+D:\Seminar_PAW_IE_21_22\Seminar6\Seminar6_1055\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.pdb
+D:\Desktop\PAW SEMIANRII\Seminar6_1055\Seminar5_1054\Seminar4_1048\Seminar4_1048\bin\Debug\Seminar4_1048.exe.config
+D:\Desktop\PAW SEMIANRII\Seminar6_1055\Seminar5_1054\Seminar4_1048\Seminar4_1048\bin\Debug\Seminar4_1048.exe
+D:\Desktop\PAW SEMIANRII\Seminar6_1055\Seminar5_1054\Seminar4_1048\Seminar4_1048\bin\Debug\Seminar4_1048.pdb
+D:\Desktop\PAW SEMIANRII\Seminar6_1055\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.csproj.AssemblyReference.cache
+D:\Desktop\PAW SEMIANRII\Seminar6_1055\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.csproj.SuggestedBindingRedirects.cache
+D:\Desktop\PAW SEMIANRII\Seminar6_1055\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.Form1.resources
+D:\Desktop\PAW SEMIANRII\Seminar6_1055\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.Form2.resources
+D:\Desktop\PAW SEMIANRII\Seminar6_1055\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.Properties.Resources.resources
+D:\Desktop\PAW SEMIANRII\Seminar6_1055\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.csproj.GenerateResource.cache
+D:\Desktop\PAW SEMIANRII\Seminar6_1055\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.csproj.CoreCompileInputs.cache
+D:\Desktop\PAW SEMIANRII\Seminar6_1055\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.exe
+D:\Desktop\PAW SEMIANRII\Seminar6_1055\Seminar5_1054\Seminar4_1048\Seminar4_1048\obj\Debug\Seminar4_1048.pdb

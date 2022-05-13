@@ -1,0 +1,4 @@
+Studentul andrei are matricol:1 studiaza la:CSIE, are notele:
+5 10 . Media: 7,5
+Studentul Ana are matricol:2 studiaza la:FABIZ, are notele:
+4 . Media: 4
