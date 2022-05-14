@@ -1,4 +1,23 @@
 /*
+label = label1 label2 = nume
+textbox= tbNume, tbMatricol, (Form2)tbStudenti,tbComanda 
+ListBox= lbStudenti
+Button= btnAdauga, btnAfiseaza(Form1,2)
+ListView= lvStudentiPerformanta,lvStudentiMerit, lvProduse
+ToolStripMenuItem=fileToolStripMenuItem
+	salvareTxtToolStripMenuItem
+	deschideTxtToolStripMenuItem
+	salvareBinarToolStripMenuItem
+	deschidereBinarToolStripMenuItem
+S8
+DateTimePicker = dtpData
+S7
+ComboBox= cbTitulatura
+radioButton= rbDa, rbNu
+GroupBox = gpStudent
+TreeView=tvStudenti
+
+
 //Seminar 2
 
 //class Persoana:IComparable { private int varsta; public Persoana (int varsta){ }
