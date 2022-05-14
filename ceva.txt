@@ -1,0 +1,868 @@
+/*
+//Seminar 2
+
+//class Persoana:IComparable { private int varsta; public Persoana (int varsta){ }
+  public int CompareTo(object obj)
+        {
+            Persoana p = (Persoana)obj;
+            if(this.varsta < p.varsta)
+            {
+                return -1;
+            }
+            else
+            {
+                if(this.varsta > p.varsta)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Seminar2_1048
+{
+    class Facultate
+    {
+        private string nume;
+        private List<Persoana> listaPersoane;
+
+        public Facultate()
+        {
+            nume = "ASE";
+            listaPersoane = new List<Persoana>();
+        }
+
+        public string Nume
+        {
+            get { return nume; }
+            set { if (value != null)
+                {
+                    nume = value;
+                } }
+        }
+
+        public List<Persoana> ListaPersoane
+        {
+            get { return listaPersoane; }
+            set { if (value != null)
+                {
+                    listaPersoane = value;
+                } }
+        }
+
+        public override string ToString()
+        {
+            string mesajAfisare = "";
+            mesajAfisare += "Facultatea " + nume + " are urmatoarele persoane: " + Environment.NewLine;
+            foreach(Persoana p in listaPersoane)
+            {
+                mesajAfisare += p.ToString() + Environment.NewLine;
+            }
+            return mesajAfisare;
+        }
+    }
+}
+
+Seminar 3
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Seminar3_1051
+{
+    class Student : Persoana, ICloneable
+    {
+        private string facultate;
+        private int varsta;
+        private int[] note;
+
+       
+        public Student(int matricol, string nume, string facultate, int varsta, int[] note):base(matricol, nume)
+        {
+            this.facultate = facultate;
+            this.varsta = varsta;
+            this.note = new int[note.Length];
+            for(int i=0; i<note.Length; i++)
+            {
+                this.note[i] = note[i];
+            }
+        }
+
+        public override string ToString()
+        {
+            string mesajAfisare = base.ToString() + ". Facultate " + facultate + " cu varsta " + varsta + " si notele: ";
+            foreach(int nota in note)
+            {
+                mesajAfisare += nota + " ";
+            }
+            return mesajAfisare;
+        }
+
+        public override void calculeazaAnulNasterii()
+        {
+            Console.WriteLine("Anul nasterii studentului {0} este {1}", nume, System.DateTime.Now.Year - varsta);
+        }
+
+        public object Clone()
+        {
+            Student s = (Student)this.MemberwiseClone();
+            int[] noteNoi = (int[])note.Clone();
+            s.note = noteNoi;
+            return s;
+        }
+
+        public static Student operator+(Student s, int notaNoua)
+        {
+            int[] noteNoi = new int[s.note.Length + 1];
+            for(int i=0; i<s.note.Length; i++)
+            {
+                noteNoi[i] = s.note[i];
+            }
+            noteNoi[noteNoi.Length - 1] = notaNoua;
+            s.note = noteNoi;
+            return s;
+        }
+
+        public static explicit operator float(Student s)
+        {
+            int sumaNote = 0;
+            for(int i=0; i<s.note.Length; i++)
+            {
+                sumaNote += s.note[i];
+            }
+            return (float)sumaNote / s.note.Length;
+        }
+
+        public int this[int index]
+        {
+            get
+            {
+                if(index>=0 && index < note.Length)
+                {
+                    return note[index];
+                }
+                else
+                {
+                    throw new ExceptieIndex();
+                }
+                
+            }
+            set
+            {
+                note[index] = value;
+            }
+        }
+
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Seminar3_1051
+{
+    class ExceptieIndex:Exception
+    {
+        public ExceptieIndex():base("Indexul este inafara range-ului!!!!!!") { }
+    }
+}
+
+using System;
+
+namespace Seminar3_1051
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Student s1 = new Student(1001, "Marcel", "Constructii", 51, new int[3] { 10, 9, 9 });
+            Console.WriteLine(s1);
+            s1.calculeazaAnulNasterii();
+            Student s2 = (Student)s1.Clone();
+            Console.WriteLine(s2);
+            s1 = s1 + 5;
+            s1 += 6;
+            Student s3 = new Student(1002, "George", "ASE", 23, new int[3] { 6, 7, 8 });
+            s2 = s3;
+            Console.WriteLine(s2);
+            float medie = (float)s1;
+            Console.WriteLine("Studentul s1 are media " + medie);
+            s1[0] = 7;
+            Console.WriteLine(s1[6]);
+
+        }
+    }
+}
+
+//SEMINAR 6
+//Student.cs
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Seminar4_1048
+{
+    [Serializable]
+    public class Student : ICalculeazaMedia
+    {
+        private string nume;
+        private int matricol;
+        private string facultate;
+        private int[] note;
+        private float medie;
+
+        public float Medie{
+            get { return medie; }
+        }
+
+        public string Nume
+        {
+            get { return nume; }
+        }
+
+        public string Facultate
+        {
+            get => facultate;
+        }
+
+        public Student(string nume, int matricol, string facultate, int[] note)
+        {
+            this.nume = nume;
+            this.matricol = matricol;
+            this.facultate = facultate;
+            this.note = new int[note.Length];
+            for(int i=0;i<note.Length;i++)
+            {
+                this.note[i] = note[i];
+            }
+        }
+
+        public override string ToString()
+        {
+            string mesajAfis = "Studentul "+nume+" are matricol:"+matricol
+                +" studiaza la:"+facultate+", are notele:\n";
+            for(int i=0;i<note.Length;i++)
+            {
+                mesajAfis += note[i] + " ";
+            }
+            mesajAfis += ". Media: " + medie;
+            return mesajAfis;
+        }
+
+        public void calculeazaMedia()
+        {
+            medie = 0;
+            for(int i=0;i<note.Length;i++)
+            {
+                medie += note[i];
+            }
+            medie /= note.Length;
+        }
+
+    }
+}
+
+//ICalculeazaMedia.cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Seminar4_1048
+{
+    interface ICalculeazaMedia
+    {
+       void calculeazaMedia();
+    }
+}
+
+//Form1.cs
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Seminar4_1048
+{
+    public partial class Form1 : Form
+    {
+        Student s;
+        List<Student> listaStudenti;
+        public Form1()
+        {
+            listaStudenti = new List<Student>();
+            InitializeComponent();
+        }
+
+        private void Form1_DoubleClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("S-a apasat dublu click!");
+        }
+
+        private string creazaAfisareLB(Student s)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(s.Medie);
+            sb.Append(" - ");
+            sb.Append(s.Nume);
+            sb.Append(" - ");
+            sb.Append(s.Facultate);
+            return sb.ToString();
+        }
+        private void btnAdauga_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string nume = tbNume.Text;
+                int matricol = Convert.ToInt32(tbMatricol.Text);
+                string facultate = tbFacultate.Text;
+                string[] vector = tbNote.Text.Split(',');
+                int[] vectorInt = new int[vector.Length];
+                for (int i = 0; i < vector.Length; i++)
+                {
+                    vectorInt[i] = Convert.ToInt32(vector[i]);
+                }
+
+                s = new Student(nume, matricol, facultate, vectorInt);
+
+                s.calculeazaMedia();
+                listaStudenti.Add(s);
+                lbStudenti.Items.Add(creazaAfisareLB(s));
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                tbMatricol.Clear();
+                tbFacultate.Clear();
+                tbNume.Clear();
+                tbNote.Clear();
+
+            }
+
+        }
+        private void btnAfiseaza_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2(listaStudenti);
+            form2.Show();
+        }
+
+        private void lbStudenti_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = lbStudenti.SelectedIndex;
+            Student s = listaStudenti[index];
+            if(s.Medie > 9.5)
+            {
+                afiseazaMB("Performanta", s);
+            } else if (s.Medie > 8.5 && s.Medie < 9.5)
+            {
+                afiseazaMB("Merit", s);
+            }
+            else
+            {
+                MessageBox.Show("Nu poate primi bursa!");
+            }
+        }
+
+        private void afiseazaMB(string bursa, Student s)
+        {
+            MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+            string mesaj = "Acordati bursa de " + bursa + "?";
+            DialogResult result = MessageBox.Show(mesaj, "Salvare student", buttons, MessageBoxIcon.Warning);
+            if(result == DialogResult.OK)
+            {
+                switch(bursa)
+                {
+                    case "Merit":
+                        ListViewItem listViewItem = new ListViewItem(s.Nume);
+                        listViewItem.SubItems.Add(s.Facultate);
+                        listViewItem.SubItems.Add(s.Medie.ToString());
+                        lvStudentiMerit.Items.Add(listViewItem);
+                        break;
+                    case "Performanta":
+                        ListViewItem listViewItem1 = new ListViewItem(s.Nume);
+                        listViewItem1.SubItems.Add(s.Facultate);
+                        listViewItem1.SubItems.Add(s.Medie.ToString());
+                        lvStudentiPerformanta.Items.Add(listViewItem1);
+                        break;
+                }
+            }
+        }
+    }
+}
+
+//Form2.cs
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Seminar4_1048
+{
+    public partial class Form2 : Form
+    {
+        List<Student> listaStudenti;
+        public Form2(List<Student> listaStudenti)
+        {
+            this.listaStudenti = listaStudenti;
+            InitializeComponent();
+        }
+
+        private void btnAfiseaza_Click(object sender, EventArgs e)
+        {
+            string mesajAfisare = "";
+            foreach(Student s in listaStudenti)
+            {
+                mesajAfisare += s.ToString() + Environment.NewLine;
+            }
+            tbStudenti.Text = mesajAfisare;
+        }
+
+        private void salvareTxtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.Filter = "(*.txt)|*.txt"; //ca la extensie sa apara doar txt
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                StreamWriter sw = new StreamWriter(saveFileDialog1.FileName);
+                foreach(Student s in listaStudenti)
+                {
+                    sw.WriteLine(s.ToString());
+                }
+                sw.Close();
+                tbStudenti.Clear();
+            }
+
+
+        }
+
+        private void deschideTxtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "(*.txt)|*.txt";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                StreamReader sr = new StreamReader(openFileDialog1.FileName);
+                tbStudenti.Text += sr.ReadToEnd();
+                sr.Close();
+            }
+        }
+
+        private void salvareBinarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FileStream fs = new FileStream("fisier.dat", FileMode.Create, FileAccess.Write);
+            BinaryFormatter bf = new BinaryFormatter();
+            bf.Serialize(fs, listaStudenti);
+            fs.Close();
+            tbStudenti.Clear();
+            MessageBox.Show("S-a salvat fisierul serializat!");
+        }
+
+        private void deschidereBinarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FileStream fs = new FileStream("fisier.dat", FileMode.Open, FileAccess.Read);
+            BinaryFormatter bf = new BinaryFormatter();
+            List<Student> listaStudentiDeserializati = (List<Student>)bf.Deserialize(fs);
+            foreach(Student s in listaStudentiDeserializati)
+            {
+                tbStudenti.Text += s.ToString() + Environment.NewLine;
+            }
+            fs.Close();
+        }
+    }
+}
+
+//Seminar 8
+//Form1.cs
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Seminar8_1048
+{
+    public partial class Form1 : Form
+    {
+        List<Produs> listaProduse = new List<Produs>();
+        List<TextBox> listaTB = new List<TextBox>();
+
+        public Form1()
+        {
+            InitializeComponent();
+            listaTB.Add(tbDenumire);
+            listaTB.Add(tbPret);
+            listaTB.Add(tbCantitate);
+            listaTB.Add(tbValoare);
+            tbCantitate.KeyPress += new KeyPressEventHandler(tbCifre_KeyPress);
+            tbPret.KeyPress += new KeyPressEventHandler(tbCifre_KeyPress);
+        }
+
+        private void tbCifre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar >='0' && e.KeyChar<='9'||e.KeyChar==(char)8)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnAdaugaLinie_Click(object sender, EventArgs e)
+        {
+            int X = listaTB[0].Location.X;
+            int Y = listaTB[listaTB.Count - 1].Location.Y;
+            int distantaTB = listaTB[1].Location.X - listaTB[0].Location.X;
+
+            for(int i=0; i<4; i++)
+            {
+                TextBox tb = new TextBox();
+                tb.Location = new Point(X, Y + 30);
+                X += distantaTB;
+                tb.Width = tbDenumire.Width;
+                if(i==1||i==2)
+                {
+                    tb.KeyPress += new KeyPressEventHandler(tbCifre_KeyPress);
+                }
+                if(i==3)
+                {
+                    tb.ReadOnly = true;
+                }
+                listaTB.Add(tb);
+                this.Controls.Add(tb);
+            }
+        }
+
+        private void btnCalculeazaTotal_Click(object sender, EventArgs e)
+        {
+            int totalComanda = 0;
+
+            for(int i=0; i<listaTB.Count; i+=4)
+            {
+                if(listaTB[i].Text=="")
+                {
+                    errorProvider1.SetError(listaTB[i], "Introduceti denumirea!");
+                } else if(listaTB[i+1].Text=="")
+                {
+                    errorProvider1.SetError(listaTB[i + 1], "Introduceti pretul");
+                } else if(listaTB[i+2].Text=="")
+                {
+                    errorProvider1.SetError(listaTB[i + 2], "Introduceti cantitatea");
+                }
+                else
+                {
+                    errorProvider1.Clear();
+                    string denumire = listaTB[i].Text;
+                    int pret = Convert.ToInt32(listaTB[i + 1].Text);
+                    int cantitate = Convert.ToInt32(listaTB[i + 2].Text);
+
+                    Produs p = new Produs(denumire, pret, cantitate);
+                    listaProduse.Add(p);
+
+                    int valoare = pret * cantitate;
+                    totalComanda += valoare;
+                    listaTB[i + 3].Text = valoare.ToString();
+
+                    ListViewItem listViewItem = new ListViewItem(p.Denumire);
+                    listViewItem.SubItems.Add(p.Pret.ToString());
+                    listViewItem.SubItems.Add(p.Cantitate.ToString());
+                    listViewItem.SubItems.Add(valoare.ToString());
+                    lvProduse.Items.Add(listViewItem);
+                }
+                tbValoareTotala.Text = totalComanda.ToString();
+            }
+        }
+
+        private void tbComanda_Click(object sender, EventArgs e)
+        {
+            string dataComanda = dtpData.Value.ToString("dd-MM-yyyy");
+            saveFileDialog1.Filter = "(*.txt)|*.txt";
+            saveFileDialog1.FileName = "Comanda_" + dataComanda;
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                StreamWriter sw = new StreamWriter(saveFileDialog1.FileName);
+                sw.WriteLine(dataComanda);
+                foreach (Produs p in listaProduse)
+                {
+                    sw.WriteLine(p.Denumire + " " + p.Pret + " " + p.Cantitate);
+                }
+                sw.WriteLine("Valoare comanda: " + tbValoareTotala.Text);
+                sw.Close();
+            }
+            this.Close();
+        }
+    }
+}
+
+//Produs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Seminar8_1048
+{
+    class Produs
+    {
+        private string denumire;
+        private int pret;
+        private int cantitate;
+
+        public Produs(string denumire, int pret, int cantitate)
+        {
+            this.denumire = denumire;
+            this.pret = pret;
+            this.cantitate = cantitate;
+        }
+
+        public string Denumire
+        {
+            get => denumire;
+        }
+
+        public int Pret
+        {
+            get => pret;
+        }
+
+        public int Cantitate
+        {
+            get => cantitate;
+        }
+    }
+}
+
+//Seminar9
+//Form1.cs
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Seminar9_1048
+{
+    public partial class Form1 : Form
+    {
+        List<Student> listaStudenti = new List<Student>();
+
+        public Form1()
+        {
+            InitializeComponent();
+            incarcaDate();
+            lvStudenti.ContextMenuStrip = contextMenuStrip1;
+            tvStudenti.ContextMenuStrip = contextMenuStrip2;
+        }
+
+        private void incarcaDate()
+        {
+            StreamReader sr = new StreamReader("Studenti.txt");
+            string linie;
+            while((linie=sr.ReadLine())!=null)
+            {
+                try
+                {
+                    int matricol = Convert.ToInt32(linie.Split(',')[0]);
+                    string nume = linie.Split(',')[1];
+                    float medie = float.Parse(linie.Split(',')[2], 
+                        CultureInfo.InvariantCulture.NumberFormat);
+
+                    Student s = new Student(matricol, nume, medie);
+                    listaStudenti.Add(s);
+                } catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            sr.Close();
+            MessageBox.Show("Datele au fost incarcate!");
+        }
+
+        private void btnPopulareLV_Click(object sender, EventArgs e)
+        {
+            foreach(Student s in listaStudenti)
+            {
+                ListViewItem listViewItem = new ListViewItem(s.matricol.ToString());
+                listViewItem.SubItems.Add(s.nume);
+                listViewItem.SubItems.Add(s.medie.ToString());
+                if(s.medie > 8.5)
+                {
+                    listViewItem.SubItems.Add("Excelent");
+                }
+                else
+                {
+                    listViewItem.SubItems.Add("Bun");
+                }
+                lvStudenti.Items.Add(listViewItem);
+            }
+        }
+
+        private void stergeElementLVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach(ListViewItem item in lvStudenti.Items)
+            {
+                if(item.Checked)
+                {
+                    item.Remove();
+                }
+            }
+        }
+
+        private void btnStergeElemLV_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in lvStudenti.Items)
+            {
+                if (item.Checked)
+                {
+                    item.Remove();
+                }
+            }
+        }
+
+        private void lvStudenti_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+            if(e.Item.Checked)
+            {
+                e.Item.BackColor = Color.Red;
+            }
+        }
+
+        private void btnPopulareTV_Click(object sender, EventArgs e)
+        {
+            TreeNode parinte = new TreeNode("Studenti");
+            tvStudenti.Nodes.Add(parinte);
+
+            foreach(Student s in listaStudenti)
+            {
+                TreeNode copil = new TreeNode(s.matricol + " - " + s.nume + " - " + s.medie);
+                parinte.Nodes.Add(copil);
+
+                TreeNode nepot = new TreeNode();
+                if(s.medie > 8.5)
+                {
+                    nepot.Text = "Excelent";
+                }
+                else
+                {
+                    nepot.Text = "Bun";
+                }
+                copil.Nodes.Add(nepot);
+            }
+            tvStudenti.ExpandAll();
+        }
+
+        private void tvStudenti_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            TreeNode nodSelectat = tvStudenti.SelectedNode;
+            int matricol;
+            try
+            {
+                matricol = Convert.ToInt32(nodSelectat.Text.Split('-')[0]);
+            }
+            catch
+            {
+                matricol = 0;
+            }
+
+            foreach (Student s in listaStudenti)
+            {
+                if (s.matricol == matricol)
+                {
+                    tbStudenti.Text += s.ToString() + Environment.NewLine;
+                }
+            }
+        }
+
+        private void stergeElementTVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TreeNode nodSelectat = tvStudenti.SelectedNode;
+            if (nodSelectat.NextNode != null)
+            {
+                nodSelectat = tvStudenti.SelectedNode.NextNode;
+            }
+            else
+            {
+                if (nodSelectat.PrevNode != null)
+                {
+                    nodSelectat = tvStudenti.SelectedNode.PrevNode;
+                }
+            }
+            tvStudenti.SelectedNode.Remove();
+            tvStudenti.SelectedNode = nodSelectat;
+        }
+    }
+}
+
+//Student.cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Seminar9_1048
+{
+    class Student
+    {
+        public int matricol;
+        public string nume;
+        public float medie;
+
+        public Student(int matricol, string nume, float medie)
+        {
+            this.matricol = matricol;
+            this.nume = nume;
+            this.medie = medie;
+        }
+
+        public override string ToString()
+        {
+            return "Studentul " + nume + " are matricolul " + matricol + " si media " + medie;
+        }
+    }
+}
+
+
+
+*/
+
+
